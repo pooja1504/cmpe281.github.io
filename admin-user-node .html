@@ -1,80 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Neighbourhood</title>
+  <title>Create User Node</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="https://www.w3schools.com/lib/w3data.js"></script>
 </head>
+
+
 <body>
 
-<div class="container" style="text-align: center">
-  <div class="jumbotron">
-    <h1>The Neighbourhood</h1>  
- </div>
-        
-</div>
 
-<nav class="navbar navbar-default">
-  <div class="container">
- 
-    <div class="collapse navbar-collapse" id="myNavbar" >
-      <ul class="nav navbar-nav ">
-       
-        
-        <li class="active"><a href="#">Home</a></li>
-        <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="admin-user-node .html">Create User Node</a></li>
-          <li><a href="#">Create Service Node</a></li>
-          <li><a href="#">Create User</a></li>
-          <li><a href="#">Create Service</a></li>
-        </ul>
-      </li>
-        
+<div w3-include-html="admin-header.html"></div> 
 
-                 <li><a href="#"> Discussion</a></li>
-                 <li><a href="#"> Messages</a></li>
-                 <li><a href="#"> Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+
+
+
+<div class="container">
 
 <div class="col-sm-4"></div>
-<div class="container col-sm-4" >
-
-<form>
-  <div class="form-group">
-    <label for="user-node-name">User Node Name:</label>
-    <input type="text" class="form-control" id="user-node-name">
+<div class="col-sm-4"><form>
+  <div class="form-group" style="text-align: center">
+    <label for="user-node">User Node Name:</label>
+    <input type="text" class="form-control" id="user-node">
   </div>
 
-
-  <button type="submit" class="btn btn-default">Create</button>
-</form>
-
+ 
+  <div style="text-align: center">
+  <button type="submit" class="btn btn-success" >Create</button></div>
+</form></div>
+<div class="col-sm-4"></div>
 
 
 </div>
 
-</body>
+
 <br><br><br>
-<footer class="text-center">
-       
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; The Neighbourhood 2017
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+
+
+
+ <div w3-include-html="footer.html"></div> 
+
+<script>
+w3IncludeHTML();
+</script>
+</body>
+
 
 </html>
