@@ -10,7 +10,7 @@
   
     <script>
 	$(document).ready(function() {
-	$.get("https://custom-env.jjkdyjrpmq.us-east-1.elasticbeanstalk.com/cluster",
+	$.get("http://custom-env.jjkdyjrpmq.us-east-1.elasticbeanstalk.com/cluster",
 			  function(data){
 			  console.log(data.clusterList.length);
 			  for(i = 0; i < data.clusterList.length; i++){
