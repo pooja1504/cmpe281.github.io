@@ -7,23 +7,38 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://www.w3schools.com/lib/w3data.js"></script>
+  
+    <script>
+	$(document).ready(function() {
+	$.get("http://custom-env.jjkdyjrpmq.us-east-1.elasticbeanstalk.com/cluster",
+			  function(data){
+			  console.log(data.clusterList.length);
+			  for(i = 0; i < data.clusterList.length; i++){
+				  $('#clusters').append('<tr><td>' + data.clusterList[i].name + '</td><td>'+ data.clusterList[i].address 
+							 + '</td><td>'+data.clusterList[i].admin.firstName +'</td><td>'+data.clusterList[i].statusValue +'</td></tr></table>');
+			  }
+			  });
+	});
+    </script>
 </head>
 <body>
 <!-- Header here -->
     <div w3-include-html="moderatorheader.html"></div>
     <script>
 w3IncludeHTML();
-</script>   
+</script> 
+  
     <div class="container" style="text-align: center">
-    <div class="jumbotron">
+
     <h2>List of Clusters</h2> 
-    </div> 
+	<br/>
     <div class="container">            
-  <table class="table table-hover">
+  <table id="clusters" class="table table-hover">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Admin assigned</th>
+		<th>Address</th>
+        <th>Admin</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -34,6 +49,7 @@ w3IncludeHTML();
 </div>
     
  </div>
+ <br/>
  <div w3-include-html="moderatorfooter.html"></div>
     <script>
 w3IncludeHTML();
