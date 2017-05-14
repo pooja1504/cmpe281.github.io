@@ -10,20 +10,41 @@
   <script src="script.js"></script>
   <link rel="stylesheet" href="styles.css"> 
 </head>
-<body>
+<body onload="clusterUser()">
 <div w3-include-html="admin-header.html"></div>
 <div class="container">
-
   <div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-  <form>
-  <div class="form-group" id="selectClusterName" style="display: none;">
+    <div class="col-sm-3 col-xs-12 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a id="userNode" href="#">Create user node</a></li>
+        <li><a id="delUserNode" href="#">Delete user node</a></li>
+        <li><a id="user" href="#">Create user</a></li>
+        <li><a id="delUser" href="#">Delete user</a></li>
+      </ul><br>
+    </div> 
+    <div class="col-sm-9 col-xs-12">  
+  <div class="row">
+  <div id = "users"></div>
+  <form id = "userNodeForm"  style="display:none; ">
+  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+    <div class="form-group">
+    <label for="userNodeName">User Node Name:</label><span style="color:red">*</span>
+    <input type="text" class="form-control" id="userNodeName" placeholder="Enter user node name">
+  </div> 
+ <div>
+  <button type="submit" id="createUserNode" class="btn btn-success" >Create</button></div>
+  </div>
+</form>
+  <form id = "userForm"  style="display:none; ">
+  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+  <div class="form-group" id="selectClusterName">
     <label for="user-node">Cluster Name:</label><span style="color:red">*</span>
     <select class="form-control" id="optionClusterName"></select>
   </div>
-  <div class="form-group" id="selectUserNode" style="display: none;">
+  <div class="form-group" id="selectUserNode">
     <label for="user-node">User Node:</label><span style="color:red">*</span>
     <select class="form-control" id="optionUserNodeName"></select>  
+    </div>
   <div class="form-group">
     <label for="user-node">User Name:</label><span style="color:red">*</span>
     <input type="text" class="form-control" id="usrname" placeholder="Enter username">
@@ -32,6 +53,8 @@
     <label for="user-node">First Name:</label><span style="color:red">*</span>
     <input type="text" class="form-control" id="fname" placeholder="Enter first name">
   </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
   <div class="form-group">
     <label for="user-node">Last Name:</label><span style="color:red">*</span>
     <input type="text" class="form-control" id="lname" placeholder="Enter last name">
@@ -55,21 +78,15 @@
   <div style="text-align: center">
   <button type="submit" id="createAdmin" class="btn btn-success" >Create</button>
   <button type="submit" id="goBack" class="btn btn-success" >Back</button></div>
-</form></div></div>
-<div class="col-sm-4"></div>
-
-
+  </div>
+</form>
 </div>
-
-
-<br><br><br>
-
-
-
- <div w3-include-html="footer.html"></div> 
+</div><br>
+</div></div>
+<div w3-include-html="footer.html"></div>
 </body>
-
   <script>
   w3.includeHTML();
   </script>
 </html>
+
