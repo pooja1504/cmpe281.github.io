@@ -4,7 +4,6 @@
   <title>Neighbourhood</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -36,7 +35,7 @@
 <tr>
   <div class="form-group">
     <td><label for="email">Email address:</label></td>
-    <td><input type="email" class="form-control" id="email" style="width: 300px;"></td>
+    <td><input type="email" class="form-control" id="email"></td>
   </div></tr>
   <tr>
   <div class="form-group">
@@ -61,15 +60,14 @@
   <tr>
   <div class="form-group">
     <td><label for="address">Address:</label></td>
-    <td><textarea rows="4" cols="100" id="address" class="form-control"  name="address"></textarea></td>
-  </div></tr>
-  <tr>
-  <div class="form-group">
-   <td><button type="submit" class="btn btn-success">Submit</button></td>
+    <td><textarea rows="4" cols="50" id="address" class="form-control"  name="address"></textarea></td>
+  </div></tr></table>
+<br>
+  <div class="form-group" align="center">
+   <button type="submit" align="center" class="btn btn-success">Submit</button>
   </div>
-  </tr>
 </form>
-</table>
+<br>
 <div w3-include-html="footer.html"></div> 
 <script>
 w3IncludeHTML();
