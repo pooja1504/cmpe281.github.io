@@ -12,34 +12,24 @@
    <link href="bootstrap/css/commentbox.css" rel='stylesheet' type='text/css'/>
 </head>
 <body>
-
 <div w3-include-html="user-header.html"></div>
-<p id="demo"></p>
 <div class="container">
 <div class="page-header"><h1>Discussion Here</h1></div>
-<a href='user-detailedcomment.html'><div class="row"><div class="col-sm-8"><div class="panel panel-white post panel-shadow"><div class="post-heading"><div class="pull-left image">
-<img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image"></div>
-<div class="pull-left meta"><div class="title h5"><b>User Name</b>made a post.</div>
-<h6 class="text-muted time">Time here</h6></div></div>
-<div class="post-description"><p>Comments here</p>
-<div class="stats"><a href="#" class="btn btn-default stat-item"><i class="fa fa-thumbs-up icon"></i>2</a><a href="#" class="btn btn-default stat-item"><i class="fa fa-thumbs-down icon"></i>12
-</a></div></div></div></div></div></a>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	$.get("http://custom-env.jjkdyjrpmq.us-east-1.elasticbeanstalk.com/servicenode",
+    			  function(data){
+    			  console.log(data.serviceNodeList.length);
+    			  for(i = 0; i < data.serviceNodeList.length; i++){
+ $('#divmain').append("<a href='user-detailedcomment.html?id="+data.serviceNodeList[i].id+"'><div class='row'><div class='col-sm-8'><div class='panel panel-white post panel-shadow'><div class='post-heading'><div class='pull-left image'><img src='http://bootdey.com/img/Content/user_1.jpg' class='img-circle avatar' alt='user profile image'></div><div id='div1' class='pull-left meta'><div class='title h5'><b>"+data.serviceNodeList[i].name+"</b></div></div><br><h6 class='text-muted time'>"+new Date(data.serviceNodeList[i].dateCreated)+"</h6></div><div class='post-description'><h6>CreatedBy:"+data.serviceNodeList[i].createdBy.firstName+"</h6></div></div></div></div></a>")
+    			  }
+    			  });
+    	});
+</script>
 
-<a href='user-detailedcomment.html'><div class="row"><div class="col-sm-8"><div class="panel panel-white post panel-shadow"><div class="post-heading"><div class="pull-left image">
-<img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image"></div>
-<div class="pull-left meta"><div class="title h5"><b>User Name</b>made a post.</div>
-<h6 class="text-muted time">Time here</h6></div></div>
-<div class="post-description"><p>Comments here</p>
-<div class="stats"><a href="#" class="btn btn-default stat-item"><i class="fa fa-thumbs-up icon"></i>2</a><a href="#" class="btn btn-default stat-item"><i class="fa fa-thumbs-down icon"></i>12
-</a></div></div></div></div></div></a>
 
-<a href='user-detailedcomment.html'><div class="row"><div class="col-sm-8"><div class="panel panel-white post panel-shadow"><div class="post-heading"><div class="pull-left image">
-<img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image"></div>
-<div class="pull-left meta"><div class="title h5"><b>User Name</b>made a post.</div>
-<h6 class="text-muted time">Time here</h6></div></div>
-<div class="post-description"><p>Comments here</p>
-<div class="stats"><a href="#" class="btn btn-default stat-item"><i class="fa fa-thumbs-up icon"></i>2</a><a href="#" class="btn btn-default stat-item"><i class="fa fa-thumbs-down icon"></i>12
-</a></div></div></div></div></div></a>
+<div id='divmain'></div>
 </div>
 <div w3-include-html="footer.html"></div> 
 <script>
