@@ -12,36 +12,64 @@
    <script src="https://www.w3schools.com/lib/w3data.js"></script>
 </head>
 <body>
-<div w3-include-html="user-header.html"></div> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	$.get("http://custom-env.jjkdyjrpmq.us-east-1.elasticbeanstalk.com/user",
+    			  function(data){
+    			  console.log(data.userList.length);
+    			  for(i = 0; i < data.userList.length; i++){
+    			$('#email').val(data.userList[i].email);
+    			$('#password').val(data.userList[i].password);
+    			$('#firstname').val(data.userList[i].firstName);
+    			$('#lastname').val(data.userList[i].lastName);
+    			$('#phonenumber').val(data.userList[i].contactNumber);
+    			$('#address').val(data.userList[i].address);
+    			  }
+    			  });
+    	});
+</script>
+<div w3-include-html="user-header.html"></div>
+<table align="center"> 
+<h1 align="center">Edit Your Details</h1><br>
 <form class="form-inline" role="form" align="center" method="post" action="user-dashboard.html?id=2">
+<tr>
   <div class="form-group">
-    <label for="email">Email address:</label>&nbsp
-    <input type="email" class="form-control" id="email">
-  </div><br>
+    <td><label for="email">Email address:</label></td>
+    <td><input type="email" class="form-control" id="email" style="width: 300px;"></td>
+  </div></tr>
+  <tr>
   <div class="form-group">
-    <label for="pwd">Password:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <input type="password" class="form-control" id="password">
-  </div><br>
+    <td><label for="pwd">Password:</label></td>
+    <td><input type="text" class="form-control" id="password"></td>
+  </div></tr>
+  <tr>
   <div class="form-group">
-    <label for="firstname">Firstname:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <input type="text" class="form-control" id="firstname">
-  </div><br>
+   <td> <label for="firstname">Firstname:</label></td>
+   <td> <input type="text" class="form-control" id="firstname"></td>
+  </div></tr>
+  <tr>
   <div class="form-group">
-    <label for="lastname">Lastname:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <input type="text" class="form-control" id="lastname">
-  </div><br>
+   <td> <label for="lastname">Lastname:</label></td>
+    <td><input type="text" class="form-control" id="lastname"></td>
+  </div></tr>
+  <tr>
   <div class="form-group">
-    <label for="phonenumber">Phone Number:</label>
-    <input type="text" class="form-control" id="phonenumber">
-  </div><br>
+   <td> <label for="phonenumber">Phone Number:</label></td>
+    <td><input type="text" class="form-control" id="phonenumber"></td>
+  </div></tr>
+  <tr>
   <div class="form-group">
-    <label for="address">Address:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <input type="text" class="form-control" id="address">
-  </div><br>
+    <td><label for="address">Address:</label></td>
+    <td><textarea rows="4" cols="100" id="address" class="form-control"  name="address"></textarea></td>
+  </div></tr>
+  <tr>
   <div class="form-group">
-   <button type="submit" class="btn btn-success">Submit</button>
+   <td><button type="submit" class="btn btn-success">Submit</button></td>
   </div>
+  </tr>
 </form>
+</table>
 <div w3-include-html="footer.html"></div> 
 <script>
 w3IncludeHTML();
